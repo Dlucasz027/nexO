@@ -8,5 +8,6 @@ class Course(models.Model):
     description = models.CharField(max_length=150)
     company = models.CharField(max_length=50)
     url = models.URLField()
+    image = models.ImageField(upload_to='main/img/', null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
