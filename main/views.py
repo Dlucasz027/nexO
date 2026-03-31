@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Course
 
 
-@login_required
+
 def course_create(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -35,7 +35,7 @@ def course_detail(request, pk):
     course = get_object_or_404(Course, pk=pk)
     return render(request, 'main/course_detail.html', {'course': course})
 
-@login_required
+
 def course_update(request, pk):
     course = get_object_or_404(Course, pk=pk)
 
@@ -53,7 +53,7 @@ def course_update(request, pk):
 
     return render(request, 'main/course_form.html', {'course': course})
 
-@login_required
+
 def course_delete(request, pk):
     course = get_object_or_404(Course, pk=pk)
 
@@ -61,4 +61,4 @@ def course_delete(request, pk):
         course.delete()
         return redirect('course_list')
 
-    return render(request, 'main/course_confirm_delete.html', {'course': course})
+    return render(request, 'main/course_delete.html', {'course': course})

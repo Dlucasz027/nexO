@@ -1,0 +1,108 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% block title %}{% if course %}Editar Curso{% else %}Novo Curso{% endif %} — Nexo{% endblock %}
+{% block content %}
+
+<div class="form-page">
+    <div class="container container-narrow">
+
+        <div class="breadcrumb">
+            <a href="{% url 'course_list' %}">← Voltar para cursos</a>
+        </div>
+
+        <div class="form-header">
+            <h1 class="form-title">{% if course %}Editar Curso{% else %}Adicionar Curso{% endif %}</h1>
+            <p class="form-subtitle">{% if course %}Atualize as informações do curso.{% else %}Preencha os dados para salvar na sua biblioteca.{% endif %}</p>
+        </div>
+
+        <div class="form-card">
+            <form method="post" enctype="multipart/form-data" class="course-form" novalidate>
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label class="form-label" for="title">Título <span class="required">*</span></label>
+                    <input
+                        type="text"
+                        id="title"
+                        name="title"
+                        class="form-input"
+                        value="{{ course.title|default:'' }}"
+                        placeholder="Ex: Python do Zero ao Avançado"
+                        required
+                        maxlength="50"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="description">Descrição</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        class="form-input form-textarea"
+                        placeholder="Uma breve descrição do que você vai aprender..."
+                        maxlength="150"
+                    >{{ course.description|default:'' }}</textarea>
+                    <span class="form-hint">Máximo de 150 caracteres</span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="company">Empresa / Plataforma <span class="required">*</span></label>
+                        <input
+                            type="text"
+                            id="company"
+                            name="company"
+                            class="form-input"
+                            value="{{ course.company|default:'' }}"
+                            placeholder="Ex: Udemy, Alura, YouTube"
+                            required
+                            maxlength="50"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="url">URL do Curso <span class="required">*</span></label>
+                        <input
+                            type="url"
+                            id="url"
+                            name="url"
+                            class="form-input"
+                            value="{{ course.url|default:'' }}"
+                            placeholder="https://..."
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="image">Imagem do Curso</label>
+                    {% if course.image %}
+                    <div class="current-image">
+                        <img src="{{ course.image.url }}" alt="Imagem atual" class="current-image-preview">
+                        <span class="current-image-label">Imagem atual — envie uma nova para substituir</span>
+                    </div>
+                    {% endif %}
+                    <label class="file-upload-area" id="file-upload-label">
+                        <input type="file" id="image" name="image" accept="image/*" class="file-input" onchange="previewImage(this)">
+                        <div class="file-upload-content" id="upload-placeholder">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <span class="file-upload-text">Clique para selecionar uma imagem</span>
+                            <span class="file-upload-hint">PNG, JPG, WEBP</span>
+                        </div>
+                        <img id="image-preview" class="image-preview-thumb" style="display:none;" alt="Preview">
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <a href="{% url 'course_list' %}" class="btn btn-ghost">Cancelar</a>
+                    <button type="submit" class="btn btn-primary">
+                        {% if course %}Salvar Alterações{% else %}Adicionar Curso{% endif %}
+                    </button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}
