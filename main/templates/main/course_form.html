@@ -55,7 +55,7 @@
                         value="{{ course.title|default:'' }}"
                         placeholder="{% t_text 'form.placeholder.title' %}"
                         required
-                        maxlength="50"
+                        maxlength="150"
                     >
                 </div>
 
@@ -68,7 +68,7 @@
                         name="description"
                         class="form-input form-textarea"
                         placeholder="{% t_text 'form.placeholder.description' %}"
-                        maxlength="150"
+                        maxlength="1500"
                     >{{ course.description|default:'' }}</textarea>
                     <span class="form-hint">
                         {% t_text 'form.hint.description' %}

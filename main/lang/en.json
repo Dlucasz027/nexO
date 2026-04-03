@@ -55,7 +55,7 @@
 
 "form.label.description": "Description",
 "form.placeholder.description": "A short description of what you'll learn...",
-"form.hint.description": "Maximum 150 characters",
+"form.hint.description": "Maximum 1500 characters",
 
 "form.label.company": "Platform / Provider",
 "form.placeholder.company": "Ex: Udemy, Alura, YouTube",

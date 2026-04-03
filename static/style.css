@@ -531,7 +531,17 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
-.detail-description { color: var(--text-2); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 28px; max-width: 560px; }
+
+.detail-description {
+    color: var(--text-2);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: 28px;
+    max-width: 560px;
+
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
 
 .detail-footer {
     display: flex;
