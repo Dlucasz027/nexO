@@ -51,7 +51,12 @@
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         {% t_text 'form.button.create' %}
                     </a>
-                    <a href="/admin/logout/" class="btn btn-ghost">{% t_text 'nav.logout' %}</a>
+                    <form method="post" action="/admin/logout/?next=/" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-ghost">
+                            {% t_text 'nav.logout' %}
+                        </button>
+                    </form>
                 {% else %}
                     <a href="/admin/login/" class="btn btn-ghost">{% t_text 'nav.login' %}</a>
                 {% endif %}
