@@ -50,6 +50,7 @@ function filterCourses(query) {
     }
 }
 
+
 function clearSearch() {
     const input = document.getElementById('searchInput');
     if (input) {

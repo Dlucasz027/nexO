@@ -1,0 +1,102 @@
+{
+"_course_list": "course_list.html",
+
+"page_title": "Nexo — My Courses",
+
+"carousel.label.library": "Personal Library",
+"carousel.title.organize_courses": "Organize your favorite courses",
+"carousel.text.centralize_learning": "Keep everything you're learning in one place.",
+"carousel.button.add_course": "Add Course",
+
+"carousel.label.build_knowledge": "Build your knowledge",
+"carousel.title.evolution_blocks": "Every course is a building block",
+"carousel.text.track_progress": "Track your progress and follow your learning journey.",
+
+"carousel.label.continuous_learning": "Continuous growth",
+"carousel.title.learn_practice_evolve": "Learn, practice, and keep improving",
+"carousel.text.library_grows": "Your library grows with you. Add new courses anytime.",
+
+"section.title.courses": "Your Courses",
+"section.count.course": "course",
+"section.count.courses": "courses",
+
+"card.action.edit": "Edit",
+"card.action.delete": "Delete",
+
+"search.empty": "No courses found for \"{term}\"",
+
+"empty.title": "No courses yet",
+"empty.text": "Start by adding your first course to your library.",
+
+
+"_index": "index.html",
+
+"nav.new_course": "New Course",
+"nav.logout": "Logout",
+"nav.login": "Login",
+"nav.search_placeholder": "Search by name...",
+
+
+"_course_form": "course_form.html",
+
+"form.page_title.create": "New Course — Nexo",
+"form.page_title.edit": "Edit Course — Nexo",
+
+"form.breadcrumb.back": "← Back to courses",
+
+"form.title.create": "Add Course",
+"form.title.edit": "Edit Course",
+
+"form.subtitle.create": "Fill in the details to save it to your library.",
+"form.subtitle.edit": "Update the course information.",
+
+"form.label.title": "Title",
+"form.placeholder.title": "Ex: Python from Beginner to Advanced",
+
+"form.label.description": "Description",
+"form.placeholder.description": "A short description of what you'll learn...",
+"form.hint.description": "Maximum 150 characters",
+
+"form.label.company": "Platform / Provider",
+"form.placeholder.company": "Ex: Udemy, Alura, YouTube",
+
+"form.label.url": "Course URL",
+"form.placeholder.url": "https://...",
+
+"form.label.image": "Course Image",
+"form.image.current": "Current image — upload a new one to replace it",
+
+"form.upload.text": "Click to upload an image",
+"form.upload.hint": "PNG, JPG, WEBP",
+
+"form.button.cancel": "Cancel",
+"form.button.save": "Save Changes",
+"form.button.create": "Add Course",
+
+
+"_course_detail": "course_detail.html",
+
+"detail.breadcrumb.back": "← Back to courses",
+
+"detail.meta.added_at": "Added on {date}",
+
+"detail.button.access": "Open Course",
+
+"detail.action.edit": "Edit",
+"detail.action.delete": "Delete",
+
+
+"_course_delete": "course_delete.html",
+
+"delete.page_title": "Delete {title} — Nexo",
+
+"delete.breadcrumb.back": "← Back to course",
+
+"delete.title": "Delete course?",
+"delete.text": "Are you sure you want to delete \"{title}\"?\nThis action cannot be undone.",
+
+"delete.preview.label": "Selected course",
+
+"delete.button.cancel": "Cancel",
+"delete.button.confirm": "Yes, delete"
+}

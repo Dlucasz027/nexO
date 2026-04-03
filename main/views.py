@@ -3,7 +3,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Course
 
 
-
 def course_create(request):
     if request.method == 'POST':
         title = request.POST.get('title')
@@ -62,3 +61,11 @@ def course_delete(request, pk):
         return redirect('course_list')
 
     return render(request, 'main/course_delete.html', {'course': course})
+
+
+def change_lang(request):
+    if request.method == 'POST':
+        lang = request.POST.get('lang', 'pt_br')
+        if lang in ['pt_br', 'en']:
+            request.session['lang'] = lang
+    return redirect(request.META.get('HTTP_REFERER', '/'))

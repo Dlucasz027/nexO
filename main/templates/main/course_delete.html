@@ -1,24 +1,38 @@
 {% extends 'main/index.html' %}
 {% load static %}
-{% block title %}Remover {{ course.title }} — Nexo{% endblock %}
+{% load t_text %}
+
+{% block title %}
+    {% t_text 'delete.page_title' title=course.title %}
+{% endblock %}
+
 {% block content %}
 
 <div class="form-page">
     <div class="container container-narrow">
 
         <div class="breadcrumb">
-            <a href="{% url 'course_detail' course.pk %}">← Voltar para o curso</a>
+            <a href="{% url 'course_detail' course.pk %}">
+                {% t_text 'delete.breadcrumb.back' %}
+            </a>
         </div>
 
         <div class="delete-card">
             <div class="delete-icon">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <polyline points="3 6 5 6 21 6"/>
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                    <line x1="10" y1="11" x2="10" y2="17"/>
+                    <line x1="14" y1="11" x2="14" y2="17"/>
+                </svg>
             </div>
 
-            <h1 class="delete-title">Remover curso?</h1>
+            <h1 class="delete-title">
+                {% t_text 'delete.title' %}
+            </h1>
+
             <p class="delete-text">
-                Tem certeza que deseja remover <strong>{{ course.title }}</strong>?
-                <br>Esta ação não pode ser desfeita.
+                {% t_text 'delete.text' title=course.title %}
             </p>
 
             {% if course.image %}
@@ -31,12 +45,17 @@
             <form method="post" class="delete-form">
                 {% csrf_token %}
                 <div class="delete-actions">
-                    <a href="{% url 'course_detail' course.pk %}" class="btn btn-ghost btn-lg">Cancelar</a>
-                    <button type="submit" class="btn btn-danger btn-lg">Sim, remover</button>
+                    <a href="{% url 'course_detail' course.pk %}" class="btn btn-ghost btn-lg">
+                        {% t_text 'delete.button.cancel' %}
+                    </a>
+                    <button type="submit" class="btn btn-danger btn-lg">
+                        {% t_text 'delete.button.confirm' %}
+                    </button>
                 </div>
             </form>
         </div>
 
     </div>
 </div>
+
 {% endblock %}

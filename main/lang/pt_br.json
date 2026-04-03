@@ -1,0 +1,103 @@
+{
+"_course_list": "course_list.html",
+
+"page_title": "Nexo — Meus Cursos",
+
+"carousel.label.library": "Biblioteca Pessoal",
+"carousel.title.organize_courses": "Organize seus cursos favoritos",
+"carousel.text.centralize_learning": "Centralize tudo que você está aprendendo em um só lugar.",
+"carousel.button.add_course": "Adicionar Curso",
+
+"carousel.label.build_knowledge": "Construa seu conhecimento",
+"carousel.title.evolution_blocks": "Cada curso é um bloco de evolução",
+"carousel.text.track_progress": "Registre seu progresso e acompanhe sua jornada de aprendizado.",
+
+"carousel.label.continuous_learning": "Desenvolvimento contínuo",
+"carousel.title.learn_practice_evolve": "Aprenda, pratique e evolua sempre",
+"carousel.text.library_grows": "Sua biblioteca cresce com você. Adicione novos cursos quando quiser.",
+
+"section.title.courses": "Seus Cursos",
+"section.count.course": "curso",
+"section.count.courses": "cursos",
+
+"card.action.edit": "Editar",
+"card.action.delete": "Remover",
+
+"search.empty": "Nenhum curso encontrado para \"{term}\"",
+
+"empty.title": "Nenhum curso ainda",
+"empty.text": "Comece adicionando seu primeiro curso à biblioteca.",
+
+
+"_index": "index.html",
+
+"nav.new_course": "Novo Curso",
+"nav.logout": "Sair",
+"nav.login": "Entrar",
+"nav.search_placeholder": "Buscar por nome...",
+
+
+"_course_form": "course_form.html",
+
+"form.page_title.create": "Novo Curso — Nexo",
+"form.page_title.edit": "Editar Curso — Nexo",
+
+"form.breadcrumb.back": "← Voltar para cursos",
+
+"form.title.create": "Adicionar Curso",
+"form.title.edit": "Editar Curso",
+
+"form.subtitle.create": "Preencha os dados para salvar na sua biblioteca.",
+"form.subtitle.edit": "Atualize as informações do curso.",
+
+"form.label.title": "Título",
+"form.placeholder.title": "Ex: Python do Zero ao Avançado",
+
+"form.label.description": "Descrição",
+"form.placeholder.description": "Uma breve descrição do que você vai aprender...",
+"form.hint.description": "Máximo de 150 caracteres",
+
+"form.label.company": "Empresa / Plataforma",
+"form.placeholder.company": "Ex: Udemy, Alura, YouTube",
+
+"form.label.url": "URL do Curso",
+"form.placeholder.url": "https://...",
+
+"form.label.image": "Imagem do Curso",
+"form.image.current": "Imagem atual — envie uma nova para substituir",
+
+"form.upload.text": "Clique para selecionar uma imagem",
+"form.upload.hint": "PNG, JPG, WEBP",
+
+"form.button.cancel": "Cancelar",
+"form.button.save": "Salvar Alterações",
+"form.button.create": "Adicionar Curso",
+
+
+"_course_detail": "course_detail.html",
+
+"detail.breadcrumb.back": "← Voltar para cursos",
+
+"detail.meta.added_at": "Adicionado em {date}",
+
+"detail.button.access": "Acessar Curso",
+
+"detail.action.edit": "Editar",
+"detail.action.delete": "Remover",
+
+
+"_course_delete": "course_delete.html",
+
+"delete.page_title": "Remover {title} — Nexo",
+
+"delete.breadcrumb.back": "← Voltar para o curso",
+
+"delete.title": "Remover curso?",
+"delete.text": "Tem certeza que deseja remover \"{title}\"?\nEsta ação não pode ser desfeita.",
+
+"delete.preview.label": "Curso selecionado",
+
+"delete.button.cancel": "Cancelar",
+"delete.button.confirm": "Sim, remover"
+}
+

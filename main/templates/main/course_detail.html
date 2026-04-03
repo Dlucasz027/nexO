@@ -1,13 +1,18 @@
 {% extends 'main/index.html' %}
 {% load static %}
+{% load t_text %}
+
 {% block title %}{{ course.title }} — Nexo{% endblock %}
+
 {% block content %}
 
 <div class="detail-page">
     <div class="container container-narrow">
 
         <div class="breadcrumb">
-            <a href="{% url 'course_list' %}">← Voltar para cursos</a>
+            <a href="{% url 'course_list' %}">
+                {% t_text 'detail.breadcrumb.back' %}
+            </a>
         </div>
 
         <article class="detail-card">
@@ -20,7 +25,9 @@
             <div class="detail-content">
                 <div class="detail-meta">
                     <span class="detail-company">{{ course.company }}</span>
-                    <span class="detail-date">Adicionado em {{ course.created_at|date:"d/m/Y" }}</span>
+                    <span class="detail-date">
+                        {% t_text 'detail.meta.added_at' date=course.created_at|date:"d/m/Y" %}
+                    </span>
                 </div>
 
                 <h1 class="detail-title">{{ course.title }}</h1>
@@ -31,14 +38,22 @@
 
                 <div class="detail-footer">
                     <a href="{{ course.url }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-                        Acessar Curso
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        {% t_text 'detail.button.access' %}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
                     </a>
 
                     {% if user.is_authenticated %}
                     <div class="detail-actions">
-                        <a href="{% url 'course_update' course.pk %}" class="btn btn-outline">Editar</a>
-                        <a href="{% url 'course_delete' course.pk %}" class="btn btn-danger-outline">Remover</a>
+                        <a href="{% url 'course_update' course.pk %}" class="btn btn-outline">
+                            {% t_text 'detail.action.edit' %}
+                        </a>
+                        <a href="{% url 'course_delete' course.pk %}" class="btn btn-danger-outline">
+                            {% t_text 'detail.action.delete' %}
+                        </a>
                     </div>
                     {% endif %}
                 </div>
@@ -47,4 +62,5 @@
 
     </div>
 </div>
+
 {% endblock %}

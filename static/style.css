@@ -702,3 +702,31 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
 .header-search .search-input:focus {
     width: 220px;
 }
+
+.lang-switcher form {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted, #888);
+    padding: 2px 4px;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+}
+
+.lang-btn:hover,
+.lang-btn.active {
+    color: var(--text-primary, #fff);
+}
+
+.lang-divider {
+    color: var(--text-muted, #555);
+    font-size: 0.7rem;
+}
