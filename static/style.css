@@ -740,3 +740,123 @@ button { cursor: pointer; font-family: var(--font-body); border: none; backgroun
     color: var(--text-muted, #555);
     font-size: 0.7rem;
 }
+
+
+.footer {
+    border-top: 1px solid var(--border);
+    background: var(--bg-card);
+    padding: 48px 0 28px;
+    margin-top: 60px;
+}
+
+.footer-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.footer-brand-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-1);
+    letter-spacing: 0.4px;
+}
+.footer-brand-name span { color: var(--accent); }
+
+.footer-tagline {
+    font-size: 0.85rem;
+    color: var(--text-3);
+    border-left: 1px solid var(--border);
+    padding-left: 16px;
+}
+
+.footer-suggestion-box {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+}
+
+.footer-suggestion-title {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-1);
+}
+
+.footer-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.footer-input {
+    font-size: 0.875rem;
+    padding: 9px 12px;
+}
+
+.footer-textarea-wrap {
+    position: relative;
+}
+
+.footer-textarea {
+    font-size: 0.875rem;
+    padding: 10px 12px;
+    padding-bottom: 24px;
+    width: 100%;
+    resize: none;
+}
+
+.sugg-counter {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: 0.72rem;
+    color: var(--text-3);
+    pointer-events: none;
+}
+
+.footer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-feedback {
+    font-size: 0.825rem;
+    min-height: 1.2em;
+}
+.feedback-ok    { color: var(--accent); }
+.feedback-error { color: var(--danger); }
+
+.footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+}
+
+.footer-copy {
+    font-size: 0.78rem;
+    color: var(--text-3);
+}
+
+@media (max-width: 520px) {
+    .footer-fields { grid-template-columns: 1fr; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .footer-tagline { border-left: none; padding-left: 0; }
+}

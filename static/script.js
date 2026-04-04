@@ -88,3 +88,80 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'ArrowRight') { carouselMove(1);  }
     });
 });
+
+
+function updateSuggCount(el) {
+    document.getElementById('suggCount').textContent = el.value.length;
+}
+
+function submitSuggestion() {
+    const email   = document.getElementById('suggEmail').value.trim();
+    const subject = document.getElementById('suggSubject').value.trim();
+    const message = document.getElementById('suggMessage').value.trim();
+    const feedback = document.getElementById('suggFeedback');
+    const btn     = document.getElementById('suggBtn');
+
+    feedback.className = 'footer-feedback';
+    feedback.textContent = '';
+
+    if (!email || !subject || !message) {
+        feedback.textContent = window.i18n.required;
+        feedback.classList.add('feedback-error');
+        return;
+    }
+
+    if (!/^[^\s@]+@gmail\.com$/i.test(email)) {
+        feedback.textContent = window.i18n.email;
+        feedback.classList.add('feedback-error');
+        return;
+    }
+
+    if (/https?:\/\/|www\.|ftp:\/\//i.test(message)) {
+        feedback.textContent = window.i18n.link;
+        feedback.classList.add('feedback-error');
+        return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = window.i18n.sending;
+
+    const csrf = document.querySelector('[name=csrfmiddlewaretoken]');
+
+    fetch('/suggestion/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams({
+            email:   email,
+            subject: subject,
+            message: message,
+            csrfmiddlewaretoken: csrf ? csrf.value : ''
+        })
+    })
+    .then(r => r.json())
+    .then(data => {
+        if (data.ok) {
+            document.getElementById('suggEmail').value   = '';
+            document.getElementById('suggSubject').value = '';
+            document.getElementById('suggMessage').value = '';
+            document.getElementById('suggCount').textContent = '0';
+
+            feedback.textContent = window.i18n.success;
+            feedback.classList.add('feedback-ok');
+        } else {
+            feedback.textContent = data.message || window.i18n.generic;
+            feedback.classList.add('feedback-error');
+        }
+    })
+    .catch(() => {
+        feedback.textContent = window.i18n.connection;
+        feedback.classList.add('feedback-error');
+    })
+    .finally(() => {
+        btn.disabled = false;
+        btn.innerHTML = `
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg> ${window.i18n.send}`;
+    });
+}

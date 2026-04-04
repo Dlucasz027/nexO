@@ -98,5 +98,28 @@
 "delete.preview.label": "Selected course",
 
 "delete.button.cancel": "Cancel",
-"delete.button.confirm": "Yes, delete"
+"delete.button.confirm": "Yes, delete",
+
+
+"_footer": "footer.html",
+
+"footer.tagline": "Suggest courses, platforms or improvements for NexO.",
+
+"footer.suggestion.title": "Send suggestion",
+
+"footer.input.email": "Your email (@gmail.com)",
+"footer.input.subject": "Subject",
+"footer.input.message": "Describe your suggestion... (no links, max. 500 characters)",
+
+"footer.button.send": "Send",
+
+"footer.feedback.success": "Suggestion sent! Thank you 🙌",
+"footer.feedback.error.required": "Fill in all fields.",
+"footer.feedback.error.email": "Only @gmail.com emails are allowed.",
+"footer.feedback.error.link": "Links are not allowed in the content.",
+"footer.feedback.error.generic": "Something went wrong.",
+"footer.feedback.error.connection": "Connection error. Try again.",
+
+"footer.copy": "© 2025 NexO. All rights reserved.",
+"footer.button.sending": "Enviando..."
 }

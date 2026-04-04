@@ -11,3 +11,15 @@ class Course(models.Model):
     image = models.ImageField(upload_to='main/img/', null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class SuggestionLog(models.Model):
+    """Controla rate limit: 1 envio a cada 8h por IP."""
+    ip_address = models.GenericIPAddressField()
+    sent_at    = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [models.Index(fields=['ip_address', 'sent_at'])]
+
+    def __str__(self):
+        return f'{self.ip_address} — {self.sent_at}'

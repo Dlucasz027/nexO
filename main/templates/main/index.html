@@ -76,6 +76,88 @@
         {% block content %}{% endblock %}
     </main>
 
+    <footer class="footer">
+        <div class="container">
+
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <span class="logo-mark" style="width:28px;height:28px;font-size:0.8rem;">N</span>
+                    <span class="footer-brand-name">nex<span>O</span></span>
+                </div>
+                <p class="footer-tagline">
+                    {% t_text 'footer.tagline' %}
+                </p>
+            </div>
+
+            <div class="footer-suggestion-box">
+                <p class="footer-suggestion-title">
+                    {% t_text 'footer.suggestion.title' %}
+                </p>
+
+                <div class="footer-fields">
+                    <input
+                        type="email"
+                        id="suggEmail"
+                        class="form-input footer-input"
+                        placeholder="{% t_text 'footer.input.email' %}"
+                        maxlength="100"
+                        autocomplete="off"
+                    >
+                    <input
+                        type="text"
+                        id="suggSubject"
+                        class="form-input footer-input"
+                        placeholder="{% t_text 'footer.input.subject' %}"
+                        maxlength="120"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="footer-textarea-wrap">
+                    <textarea
+                        id="suggMessage"
+                        class="form-input form-textarea footer-textarea"
+                        placeholder="{% t_text 'footer.input.message' %}"
+                        maxlength="500"
+                        rows="4"
+                        oninput="updateSuggCount(this)"
+                    ></textarea>
+                    <span class="sugg-counter"><span id="suggCount">0</span>/500</span>
+                </div>
+
+                <div class="footer-actions">
+                    <p class="footer-feedback" id="suggFeedback"></p>
+                    <button class="btn btn-accent" id="suggBtn" onclick="submitSuggestion()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="22" y1="2" x2="11" y2="13"/>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                        </svg>
+                        {% t_text 'footer.button.send' %}
+                    </button>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-copy">
+                    {% t_text 'footer.copy' %}
+                </span>
+            </div>
+
+        </div>
+    </footer>
+
+        <script>
+        window.i18n = {
+            required: "{% t_text 'footer.feedback.error.required' %}",
+            email: "{% t_text 'footer.feedback.error.email' %}",
+            link: "{% t_text 'footer.feedback.error.link' %}",
+            sending: "{% t_text 'footer.button.sending' %}",
+            success: "{% t_text 'footer.feedback.success' %}",
+            generic: "{% t_text 'footer.feedback.error.generic' %}",
+            connection: "{% t_text 'footer.feedback.error.connection' %}",
+            send: "{% t_text 'footer.button.send' %}"
+        };
+    </script>
     <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
