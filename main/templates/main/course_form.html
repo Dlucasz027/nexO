@@ -109,6 +109,23 @@
                 </div>
 
                 <div class="form-group">
+                    <label class="form-label" for="category">
+                        {% t_text 'form.label.category' %} <span class="required">*</span>
+                    </label>
+                    <select id="category" name="category" class="form-input" required>
+                        <option value="" disabled {% if not course %}selected{% endif %}>
+                            {% t_text 'form.placeholder.category' %}
+                        </option>
+                        {% for value, label in categories %}
+                            <option value="{{ value }}"
+                                {% if course.category == value %}selected{% endif %}>
+                                {% t_text "category."|add:value %}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div class="form-group">
                     <label class="form-label" for="image">
                         {% t_text 'form.label.image' %}
                     </label>

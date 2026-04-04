@@ -15,6 +15,7 @@ def course_create(request):
         company = request.POST.get('company')
         url = request.POST.get('url')
         image = request.FILES.get('image')
+        category = request.POST.get('category')
 
         Course.objects.create(
             title=title,
@@ -22,17 +23,32 @@ def course_create(request):
             company=company,
             url=url,
             image=image,
+            category=category,
             created_by=request.user
         )
 
         return redirect('course_list')
 
-    return render(request, 'main/course_form.html')
+    return render(request, 'main/course_form.html', {
+        'categories': Course.Category.choices
+    })
 
 
 def course_list(request):
-    courses = Course.objects.all()
-    return render(request, 'main/course_list.html', {'courses': courses})
+    categories = Course.Category.choices
+
+    sections = []
+    for value, label in categories:
+        courses = Course.objects.filter(category=value)
+        if courses.exists():
+            sections.append({
+                'label': label,
+                'label_key': f'category.{value}',
+                'value': value,
+                'courses': courses,
+            })
+
+    return render(request, 'main/course_list.html', {'sections': sections})
 
 
 def course_detail(request, pk):
@@ -48,6 +64,7 @@ def course_update(request, pk):
         course.description = request.POST.get('description')
         course.company = request.POST.get('company')
         course.url = request.POST.get('url')
+        course.category = request.POST.get('category')
 
         if request.FILES.get('image'):
             course.image = request.FILES.get('image')
@@ -55,7 +72,10 @@ def course_update(request, pk):
         course.save()
         return redirect('course_detail', pk=course.pk)
 
-    return render(request, 'main/course_form.html', {'course': course})
+    return render(request, 'main/course_form.html', {
+        'course': course,
+        'categories': Course.Category.choices
+    })
 
 
 def course_delete(request, pk):

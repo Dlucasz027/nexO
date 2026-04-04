@@ -121,5 +121,13 @@
 "footer.feedback.error.connection": "Connection error. Try again.",
 
 "footer.copy": "© 2025 NexO. All rights reserved.",
-"footer.button.sending": "Enviando..."
+"footer.button.sending": "Enviando...",
+
+
+"category.programming":   "Programming",
+"category.networks":      "Networking",
+"category.cybersecurity": "Cybersecurity",
+"category.cloud":         "Cloud Computing",
+"category.languages":     "Languages",
+"category.softskills":    "Soft Skills"
 }

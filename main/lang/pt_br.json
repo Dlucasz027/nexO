@@ -121,6 +121,14 @@
 "footer.feedback.error.connection": "Erro de conexão. Tente novamente.",
 
 "footer.copy": "© 2025 NexO. Todos os direitos reservados.",
-"footer.button.sending": "Enviando..."
+"footer.button.sending": "Enviando...",
+
+
+"category.programming":   "Programação",
+"category.networks":      "Redes",
+"category.cybersecurity": "Cybersecurity",
+"category.cloud":         "Computação em Nuvem",
+"category.languages":     "Idiomas",
+"category.softskills":    "Soft Skills"
 }
 

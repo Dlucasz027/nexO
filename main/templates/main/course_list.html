@@ -79,77 +79,88 @@
     </div>
 </section>
 
+{% if sections %}
+
+    <div class="empty-search" id="emptySearch" style="display:none;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <p>{% t_text 'search.empty' %}</p>
+    </div>
+
+    {% for section in sections %}
+    <section class="courses-section" data-section="{{ section.value }}">
+        <div class="container">
+
+            <div class="section-header">
+                <div class="section-title-group">
+                    <h2 class="section-title">{% t_text section.label_key %}</h2>
+                    <span class="section-count" id="visibleCount-{{ section.value }}">
+                        {{ section.courses|length }}
+                        {% if section.courses|length == 1 %}
+                            {% t_text 'section.count.course' %}
+                        {% else %}
+                            {% t_text 'section.count.courses' %}
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+
+            <div class="courses-grid">
+                {% for course in section.courses %}
+                <article class="course-card"
+                    data-title="{{ course.title|lower }}"
+                    data-company="{{ course.company|lower }}"
+                    data-category="{{ course.category }}"
+                    data-id="{{ course.pk }}">
+
+                    <a href="{% url 'course_detail' course.pk %}" class="card-link">
+                        <div class="card-image-wrapper">
+                            {% if course.image %}
+                                <img src="{{ course.image.url }}" alt="{{ course.title }}" class="card-image">
+                            {% else %}
+                                <div class="card-image-placeholder">
+                                    <span class="placeholder-initial">{{ course.title|slice:":2"|upper }}</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <span class="card-company">{{ course.company }}</span>
+                            <h2 class="card-title">{{ course.title }}</h2>
+                        </div>
+                    </a>
+
+                    {% if user.is_authenticated %}
+                    <div class="card-actions">
+                        <a href="{% url 'course_update' course.pk %}" class="action-btn action-edit">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                            </svg>
+                            {% t_text 'card.action.edit' %}
+                        </a>
+
+                        <a href="{% url 'course_delete' course.pk %}" class="action-btn action-delete">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"/>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
+                            </svg>
+                            {% t_text 'card.action.delete' %}
+                        </a>
+                    </div>
+                    {% endif %}
+                </article>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+    {% endfor %}
+
+{% else %}
 <section class="courses-section">
     <div class="container">
-
-        <div class="section-header">
-            <div class="section-title-group">
-                <h2 class="section-title">{% t_text 'section.title.courses' %}</h2>
-                <span class="section-count" id="visibleCount">
-                    {{ courses.count }}
-                    {% if courses.count == 1 %}
-                        {% t_text 'section.count.course' %}
-                    {% else %}
-                        {% t_text 'section.count.courses' %}
-                    {% endif %}
-                </span>
-            </div>
-        </div>
-
-        {% if courses %}
-        <div class="courses-grid" id="coursesGrid">
-            {% for course in courses %}
-            <article class="course-card" data-title="{{ course.title|lower }}" data-company="{{ course.company|lower }}" data-id="{{ course.pk }}">
-                <a href="{% url 'course_detail' course.pk %}" class="card-link">
-                    <div class="card-image-wrapper">
-                        {% if course.image %}
-                            <img src="{{ course.image.url }}" alt="{{ course.title }}" class="card-image">
-                        {% else %}
-                            <div class="card-image-placeholder">
-                                <span class="placeholder-initial">{{ course.title|slice:":2"|upper }}</span>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="card-body">
-                        <span class="card-company">{{ course.company }}</span>
-                        <h2 class="card-title">{{ course.title }}</h2>
-                    </div>
-                </a>
-
-                {% if user.is_authenticated %}
-                <div class="card-actions">
-                    <a href="{% url 'course_update' course.pk %}" class="action-btn action-edit">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
-                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
-                        </svg>
-                        {% t_text 'card.action.edit' %}
-                    </a>
-
-                    <a href="{% url 'course_delete' course.pk %}" class="action-btn action-delete">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="3 6 5 6 21 6"/>
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/>
-                        </svg>
-                        {% t_text 'card.action.delete' %}
-                    </a>
-                </div>
-                {% endif %}
-            </article>
-            {% endfor %}
-        </div>
-
-        <div class="empty-search" id="emptySearch" style="display:none;">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-            </svg>
-            <p>
-                {% t_text 'search.empty' %}
-            </p>
-        </div>
-
-        {% else %}
         <div class="empty-state">
             <div class="empty-icon">
                 <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -165,9 +176,8 @@
             </a>
             {% endif %}
         </div>
-        {% endif %}
-
     </div>
 </section>
+{% endif %}
 
 {% endblock %}
