@@ -46,8 +46,9 @@ function filterCourses(query) {
     let visible = 0;
 
     cards.forEach(card => {
-        const title = card.dataset.title || '';
-        const match = title.includes(q);
+        const title   = card.dataset.title   || '';
+        const company = card.dataset.company || '';
+        const match   = title.includes(q) || company.includes(q);
         card.style.display = match ? '' : 'none';
         if (match) visible++;
     });

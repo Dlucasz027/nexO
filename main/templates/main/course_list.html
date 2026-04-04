@@ -99,7 +99,7 @@
         {% if courses %}
         <div class="courses-grid" id="coursesGrid">
             {% for course in courses %}
-            <article class="course-card" data-title="{{ course.title|lower }}" data-id="{{ course.pk }}">
+            <article class="course-card" data-title="{{ course.title|lower }}" data-company="{{ course.company|lower }}" data-id="{{ course.pk }}">
                 <a href="{% url 'course_detail' course.pk %}" class="card-link">
                     <div class="card-image-wrapper">
                         {% if course.image %}
