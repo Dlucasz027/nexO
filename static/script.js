@@ -1,4 +1,6 @@
 let currentSlide = 0;
+let carouselInterval = null;
+const CAROUSEL_DELAY = 13000;
 
 function carouselGoTo(index) {
     const slides = document.querySelectorAll('.carousel-slide');
@@ -16,6 +18,20 @@ function carouselGoTo(index) {
 
 function carouselMove(dir) {
     carouselGoTo(currentSlide + dir);
+}
+
+function startCarouselAuto() {
+    stopCarouselAuto();
+    carouselInterval = setInterval(() => {
+        carouselMove(1);
+    }, CAROUSEL_DELAY);
+}
+
+function stopCarouselAuto() {
+    if (carouselInterval) {
+        clearInterval(carouselInterval);
+        carouselInterval = null;
+    }
 }
 
 
@@ -84,9 +100,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', e => {
         if (!document.querySelector('.carousel')) return;
-        if (e.key === 'ArrowLeft')  { carouselMove(-1); }
-        if (e.key === 'ArrowRight') { carouselMove(1);  }
+        if (e.key === 'ArrowLeft')  { carouselMove(-1); stopCarouselAuto(); }
+        if (e.key === 'ArrowRight') { carouselMove(1);  stopCarouselAuto(); }
     });
+
+    const carousel = document.querySelector('.carousel');
+    if (carousel) {
+        carousel.addEventListener('mouseenter', stopCarouselAuto);
+        carousel.addEventListener('mouseleave', startCarouselAuto);
+
+        carousel.querySelectorAll('.carousel-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                stopCarouselAuto();
+                startCarouselAuto();
+            });
+        });
+
+        startCarouselAuto();
+    }
 });
 
 
@@ -95,11 +126,11 @@ function updateSuggCount(el) {
 }
 
 function submitSuggestion() {
-    const email   = document.getElementById('suggEmail').value.trim();
-    const subject = document.getElementById('suggSubject').value.trim();
-    const message = document.getElementById('suggMessage').value.trim();
+    const email    = document.getElementById('suggEmail').value.trim();
+    const subject  = document.getElementById('suggSubject').value.trim();
+    const message  = document.getElementById('suggMessage').value.trim();
     const feedback = document.getElementById('suggFeedback');
-    const btn     = document.getElementById('suggBtn');
+    const btn      = document.getElementById('suggBtn');
 
     feedback.className = 'footer-feedback';
     feedback.textContent = '';
