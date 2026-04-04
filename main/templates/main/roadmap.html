@@ -1,0 +1,46 @@
+{% extends 'main/index.html' %}
+{% load static %}
+{% load t_text %}
+{% block title %}Roadmap — NexO{% endblock %}
+{% block content %}
+
+<div class="roadmap-page">
+    <div class="container container-narrow">
+
+        <div class="breadcrumb">
+            <a href="{% url 'course_list' %}">← Voltar</a>
+        </div>
+
+        <div class="form-header">
+            <h1 class="section-title">Gerar Roadmap</h1>
+            <p class="form-subtitle">Escolha sua stack e descubra o caminho mais curto até o mercado.</p>
+        </div>
+
+        <div class="roadmap-card">
+
+            <div class="roadmap-step">
+                <p class="roadmap-step-label">1. Escolha a stack</p>
+                <div class="roadmap-stacks" id="roadmapStacks">
+                    <button class="stack-btn" data-stack="python"     onclick="selectStack('python')">Python</button>
+                    <button class="stack-btn" data-stack="javascript" onclick="selectStack('javascript')">JavaScript</button>
+                    <button class="stack-btn" data-stack="java"       onclick="selectStack('java')">Java</button>
+                    <button class="stack-btn" data-stack="csharp"     onclick="selectStack('csharp')">C#</button>
+                    <button class="stack-btn" data-stack="ruby"       onclick="selectStack('ruby')">Ruby</button>
+                    <button class="stack-btn" data-stack="typescript" onclick="selectStack('typescript')">TypeScript</button>
+                    <button class="stack-btn" data-stack="golang"     onclick="selectStack('golang')">Go</button>
+                    <button class="stack-btn" data-stack="rust"       onclick="selectStack('rust')">Rust</button>
+                </div>
+            </div>
+
+            <div class="roadmap-step" id="roadmapCareersSection" style="display:none;">
+                <p class="roadmap-step-label">2. Escolha a área</p>
+                <div class="roadmap-careers" id="roadmapCareers"></div>
+            </div>
+
+            <div id="roadmapResult" style="display:none;"></div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

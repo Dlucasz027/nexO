@@ -133,3 +133,7 @@ def submit_suggestion(request):
 
     SuggestionLog.objects.create(ip_address=ip)
     return JsonResponse({'ok': True, 'message': 'Sugestão enviada com sucesso!'})
+
+
+def roadmap(request):
+    return render(request, 'main/roadmap.html')
