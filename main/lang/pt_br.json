@@ -28,6 +28,10 @@
 "empty.title": "Nenhum curso ainda",
 "empty.text": "Comece adicionando seu primeiro curso à biblioteca.",
 
+"roadmap.banner.title": "Não sabe por onde começar?",
+"roadmap.banner.subtitle": "Gere um roadmap personalizado para a sua stack em segundos.",
+"roadmap.banner.button": "Crie seu próprio roadmap →",
+
 
 "_index": "index.html",
 
@@ -72,6 +76,7 @@
 "form.button.cancel": "Cancelar",
 "form.button.save": "Salvar Alterações",
 "form.button.create": "Adicionar Curso",
+"form.label.category": "Categoria/Tipo",
 
 
 "_course_detail": "course_detail.html",
@@ -129,6 +134,35 @@
 "category.cybersecurity": "Cybersecurity",
 "category.cloud":         "Computação em Nuvem",
 "category.languages":     "Idiomas",
-"category.softskills":    "Soft Skills"
+"category.softskills":    "Soft Skills",
+
+
+"_roadmap": "roadmap.html",
+
+"roadmap.page_title": "Nexo — Roadmap",
+
+"roadmap.hero.title": "Crie seu roadmap de estudos",
+"roadmap.hero.text": "Escolha uma stack e visualize um caminho claro para evoluir.",
+
+"roadmap.select_stack": "Selecione uma stack",
+
+"roadmap.stack.programming": "Programação",
+"roadmap.stack.networks": "Redes",
+"roadmap.stack.cybersecurity": "Cybersecurity",
+"roadmap.stack.cloud": "Cloud",
+"roadmap.stack.languages": "Idiomas",
+
+"roadmap.empty": "Selecione uma stack para gerar seu roadmap",
+
+"roadmap.section.beginner": "Iniciante",
+"roadmap.section.intermediate": "Intermediário",
+"roadmap.section.advanced": "Avançado",
+
+"roadmap.card.start": "Começar",
+"roadmap.card.in_progress": "Em progresso",
+"roadmap.card.done": "Concluído",
+
+"roadmap.tip.title": "Dica",
+"roadmap.tip.text": "Não tente aprender tudo ao mesmo tempo. Foque em consistência."
 }
 

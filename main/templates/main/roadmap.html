@@ -1,39 +1,42 @@
 {% extends 'main/index.html' %}
 {% load static %}
 {% load t_text %}
-{% block title %}Roadmap — NexO{% endblock %}
+
+{% block title %}{% t_text "roadmap.page_title" %}{% endblock %}
+
 {% block content %}
 
 <div class="roadmap-page">
     <div class="container container-narrow">
 
         <div class="breadcrumb">
-            <a href="{% url 'course_list' %}">← Voltar</a>
+            <a href="{% url 'course_list' %}">{% t_text "delete.breadcrumb.back" %}</a>
         </div>
 
         <div class="form-header">
-            <h1 class="section-title">Gerar Roadmap</h1>
-            <p class="form-subtitle">Escolha sua stack e descubra o caminho mais curto até o mercado.</p>
+            <h1 class="section-title">{% t_text "roadmap.hero.title" %}</h1>
+            <p class="form-subtitle">{% t_text "roadmap.hero.text" %}</p>
         </div>
 
         <div class="roadmap-card">
 
             <div class="roadmap-step">
-                <p class="roadmap-step-label">1. Escolha a stack</p>
+                <p class="roadmap-step-label">{% t_text "roadmap.select_stack" %}</p>
+                
                 <div class="roadmap-stacks" id="roadmapStacks">
-                    <button class="stack-btn" data-stack="python"     onclick="selectStack('python')">Python</button>
+                    <button class="stack-btn" data-stack="python" onclick="selectStack('python')">Python</button>
                     <button class="stack-btn" data-stack="javascript" onclick="selectStack('javascript')">JavaScript</button>
-                    <button class="stack-btn" data-stack="java"       onclick="selectStack('java')">Java</button>
-                    <button class="stack-btn" data-stack="csharp"     onclick="selectStack('csharp')">C#</button>
-                    <button class="stack-btn" data-stack="ruby"       onclick="selectStack('ruby')">Ruby</button>
+                    <button class="stack-btn" data-stack="java" onclick="selectStack('java')">Java</button>
+                    <button class="stack-btn" data-stack="csharp" onclick="selectStack('csharp')">C#</button>
+                    <button class="stack-btn" data-stack="ruby" onclick="selectStack('ruby')">Ruby</button>
                     <button class="stack-btn" data-stack="typescript" onclick="selectStack('typescript')">TypeScript</button>
-                    <button class="stack-btn" data-stack="golang"     onclick="selectStack('golang')">Go</button>
-                    <button class="stack-btn" data-stack="rust"       onclick="selectStack('rust')">Rust</button>
+                    <button class="stack-btn" data-stack="golang" onclick="selectStack('golang')">Go</button>
+                    <button class="stack-btn" data-stack="rust" onclick="selectStack('rust')">Rust</button>
                 </div>
             </div>
 
             <div class="roadmap-step" id="roadmapCareersSection" style="display:none;">
-                <p class="roadmap-step-label">2. Escolha a área</p>
+                <p class="roadmap-step-label">2. {% t_text "roadmap.select_stack" %}</p>
                 <div class="roadmap-careers" id="roadmapCareers"></div>
             </div>
 

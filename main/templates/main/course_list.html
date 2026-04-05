@@ -82,10 +82,12 @@
     <div class="container">
         <a href="{% url 'roadmap' %}" class="roadmap-banner">
             <div class="roadmap-banner-text">
-                <p class="roadmap-banner-title">Não sabe por onde começar?</p>
-                <p class="roadmap-banner-sub">Gere um roadmap personalizado para a sua stack em segundos.</p>
+                <p class="roadmap-banner-title">{% t_text "roadmap.banner.title" %}</p>
+                <p class="roadmap-banner-sub">{% t_text "roadmap.banner.subtitle" %}</p>
             </div>
-            <span class="btn btn-accent">Crie seu Próprio Roadmap →</span>
+            <span class="btn btn-accent">
+                {% t_text "roadmap.banner.button" %}
+            </span>
         </a>
     </div>
 
