@@ -190,7 +190,120 @@ const ROADMAP_DATA = {
                 tip: 'NestJS domina o backend TypeScript em empresas maiores. Fastify é mais leve e cresce rápido.'
             }
         }
+    },
+    networking: {
+    label: 'Redes',
+    careers: {
+        infra: {
+            label: 'Infraestrutura / Sysadmin',
+            time: '16 meses',
+            framework: ['Linux', 'Windows Server'],
+            database: ['—'],
+            complementary: ['Shell Script', 'Virtualização', 'Monitoramento (Zabbix/Grafana)'],
+            tip: 'Linux é obrigatório. Saber troubleshooting e automação diferencia muito no mercado.'
+        },
+        fttx: {
+            label: 'FTTx / Provedores',
+            time: '14 meses',
+            framework: ['GPON', 'EPON', 'OLT/ONU'],
+            database: ['—'],
+            complementary: ['VLAN', 'PPPoE', 'MikroTik', 'BGP básico'],
+            tip: 'Conhecimento em OLT, VLAN e PPPoE é essencial. Muito forte no mercado ISP.'
+        },
+        routing: {
+            label: 'Roteamento & Switching',
+            time: '18 meses',
+            framework: ['Cisco (CCNA/CCNP)', 'MikroTik', 'Juniper'],
+            database: ['—'],
+            complementary: ['OSPF', 'BGP', 'VLAN', 'STP'],
+            tip: 'CCNA é porta de entrada. BGP e OSPF são diferenciais fortes.'
+        },
+        wireless: {
+            label: 'Wireless',
+            time: '12 meses',
+            framework: ['Ubiquiti', 'MikroTik', 'Cambium'],
+            database: ['—'],
+            complementary: ['RF', 'Planejamento de enlaces', 'AirMax/LTU'],
+            tip: 'Entender RF e interferência é o que separa básico de profissional.'
+        }
     }
+},
+
+cybersecurity: {
+    label: 'Cybersecurity',
+    careers: {
+        pentest: {
+            label: 'Pentest / Red Team',
+            time: '20 meses',
+            framework: ['Kali Linux', 'Metasploit', 'Burp Suite'],
+            database: ['—'],
+            complementary: ['Networking', 'Python', 'OWASP Top 10'],
+            tip: 'Base forte em redes e web é obrigatória. Pentest não é ponto de entrada fácil.'
+        },
+        soc: {
+            label: 'SOC / Blue Team',
+            time: '14 meses',
+            framework: ['SIEM (Splunk, Wazuh)', 'EDR/XDR'],
+            database: ['—'],
+            complementary: ['Logs', 'Linux', 'Networking', 'Threat Hunting'],
+            tip: 'Análise de logs e incidentes é o core. Excelente porta de entrada na área.'
+        },
+        grc: {
+            label: 'GRC',
+            time: '12 meses',
+            framework: ['ISO 27001', 'NIST'],
+            database: ['—'],
+            complementary: ['Políticas de segurança', 'Auditoria', 'Compliance'],
+            tip: 'Menos técnico, mas muito valorizado em empresas grandes e bancos.'
+        },
+        forense: {
+            label: 'Forense Digital',
+            time: '18 meses',
+            framework: ['Autopsy', 'FTK', 'Volatility'],
+            database: ['—'],
+            complementary: ['Sistemas de arquivos', 'Linux', 'Análise de memória'],
+            tip: 'Área nichada e avançada. Muito usada em investigação e perícia.'
+        }
+    }
+},
+
+cloud: {
+    label: 'Cloud',
+    careers: {
+        aws: {
+            label: 'AWS',
+            time: '12 meses',
+            framework: ['EC2', 'S3', 'RDS', 'Lambda'],
+            database: ['RDS', 'DynamoDB'],
+            complementary: ['IAM', 'VPC', 'CloudWatch'],
+            tip: 'AWS domina o mercado. Certificação Cloud Practitioner é ótimo começo.'
+        },
+        azure: {
+            label: 'Azure',
+            time: '12 meses',
+            framework: ['VMs', 'App Services', 'Azure Functions'],
+            database: ['Azure SQL', 'Cosmos DB'],
+            complementary: ['IAM', 'Networking', 'Monitoramento'],
+            tip: 'Muito forte em empresas que usam Microsoft e .NET.'
+        },
+        gcp: {
+            label: 'GCP',
+            time: '12 meses',
+            framework: ['Compute Engine', 'Cloud Run', 'BigQuery'],
+            database: ['BigQuery', 'Firestore'],
+            complementary: ['IAM', 'Data Engineering'],
+            tip: 'Muito forte em dados e analytics. BigQuery é diferencial gigante.'
+        },
+        devops: {
+            label: 'DevOps / Cloud Engineer',
+            time: '18 meses',
+            framework: ['Docker', 'Kubernetes'],
+            database: ['—'],
+            complementary: ['CI/CD', 'Terraform', 'Linux', 'Observability'],
+            tip: 'Docker + Kubernetes + Terraform é o combo mais forte do mercado.'
+        }
+    }
+}
 };
 
 
