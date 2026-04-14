@@ -31,6 +31,7 @@
 "roadmap.banner.title": "Not sure where to start?",
 "roadmap.banner.subtitle": "Generate a personalized roadmap for your stack in seconds.",
 "roadmap.banner.button": "Create your own roadmap →",
+"roadmap.carrossel.button": "Generate study path",
 
 
 "_index": "index.html",
