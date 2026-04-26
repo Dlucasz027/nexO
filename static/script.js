@@ -557,7 +557,6 @@ function selectCareer(stackKey, careerKey) {
     document.querySelectorAll('.career-btn').forEach(b => b.classList.remove('active'));
     document.querySelector(`[data-career="${careerKey}"]`).classList.add('active');
 
-    // Resolve tudo via ri()
     const stackLabel  = ri(stack.label);
     const careerLabel = ri(career.label);
     const careerTime  = ri(career.time);
